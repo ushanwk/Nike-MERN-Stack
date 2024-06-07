@@ -1,7 +1,7 @@
-import { CustomerReviews, Footer, Hero, PopularProducts, Services, SpecialOffer, Subscribe, SuperQuality } from './sections/Home/index.js'
+import { CustomerReviews, Footer, Hero, PopularProducts, Services, SpecialOffer, Subscribe, SuperQuality } from './pages/Home/index.js'
 import Nav from "./components/Nav.jsx";
 import {Route, Routes} from "react-router-dom";
-import {ShopItems} from "./sections/Item/ShopItems.jsx";
+import {ShopItems} from "./pages/Item/ShopItems.jsx";
 import {NavItemsSec} from "./components/NavItemsSec.jsx";
 
 const App = () => (

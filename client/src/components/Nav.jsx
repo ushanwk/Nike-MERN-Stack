@@ -1,8 +1,9 @@
 import {headerLogo} from "../assets/images/index.js";
 import {navLinks} from '../constants/index.js'
-import {hamburger} from "../assets/icons/index.js";
-import {ShopItems} from "../sections/Item/ShopItems.jsx";
+import {arrowRight, hamburger} from "../assets/icons/index.js";
+import {ShopItems} from "../pages/Item/ShopItems.jsx";
 import {Link} from "react-router-dom";
+import Button from "./Button.jsx";
 
 const Nav = () => {
     return(
@@ -21,11 +22,19 @@ const Nav = () => {
                     {
                         navLinks.map((item) => (
                             <li key={item.label}>
-                                <a href={item.href} className="font-montserrat leading-normal text-lg text-slate-gray">{item.label}</a>
+                                <a href={item.href}
+                                   className="font-montserrat leading-normal text-lg text-slate-gray">{item.label}</a>
                             </li>
                         ))
                     }
                 </ul>
+
+                <div className='flex flex-wrap gap-4 justify-center'>
+                    <Link to={'items'}
+                          className="flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none rounded-full bg-coral-red text-white">
+                        Register
+                    </Link>
+                </div>
 
                 <div className="lg:hidden">
                     <img src={hamburger} width={25} height={25}/>
