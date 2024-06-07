@@ -3,6 +3,9 @@ import Nav from "./components/Nav.jsx";
 import {Route, Routes} from "react-router-dom";
 import {ShopItems} from "./pages/Item/ShopItems.jsx";
 import {NavItemsSec} from "./components/NavItemsSec.jsx";
+import {RegisterPage} from "./pages/Register/RegisterPage.jsx";
+import {RegHeader} from "./pages/Register/RegHeader.jsx";
+import {LoginPage} from "./pages/Login/LoginPage.jsx";
 
 const App = () => (
 
@@ -51,6 +54,20 @@ const App = () => (
         <Route path={'items'} element={
             <main>
                 <ShopItems/>
+            </main>
+        } />
+
+        <Route path={'register'} element={
+            <main>
+                <RegHeader/>
+                <RegisterPage/>
+            </main>
+        } />
+
+        <Route path={'login'} element={
+            <main>
+                <RegHeader/>
+                <LoginPage/>
             </main>
         } />
     </Routes>
