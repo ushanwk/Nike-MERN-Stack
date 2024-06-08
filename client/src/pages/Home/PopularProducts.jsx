@@ -2,6 +2,7 @@ import {products} from "../../constants/index.js";
 import PopularProductCard from "../../components/PopularProductCard.jsx";
 import Button from "../../components/Button.jsx";
 import {Link} from "react-router-dom";
+import {arrowRight} from "../../assets/icons/index.js";
 
 const PopularProducts = () => {
     return(
@@ -23,9 +24,7 @@ const PopularProducts = () => {
             </div>
 
             <div className='mt-16 flex flex-wrap gap-4 justify-center'>
-                <Link to={'items'} className="flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none rounded-full border-gray-500">
-                    Discover more
-                </Link>
+                <Link to={'/items'}><Button label='Discover more' iconUrl={arrowRight}/></Link>
             </div>
         </section>
 )

@@ -30,10 +30,7 @@ const Nav = () => {
                 </ul>
 
                 <div className='flex flex-wrap gap-4 justify-center'>
-                    <Link to={'/register'}
-                          className="flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none rounded-full bg-coral-red text-white">
-                        Register
-                    </Link>
+                    <Link to={'/register'}><Button label='Register' iconUrl={arrowRight}/></Link>
                 </div>
 
                 <div className="lg:hidden">
