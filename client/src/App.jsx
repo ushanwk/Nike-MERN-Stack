@@ -6,6 +6,8 @@ import {RegisterPage} from "./pages/Register/RegisterPage.jsx";
 import {RegHeader} from "./pages/Register/RegHeader.jsx";
 import {LoginPage} from "./pages/Login/LoginPage.jsx";
 import {UserContextProvider} from "./UserContext.jsx";
+import {AdminDashboard} from "./pages/Admin/AdminDashboard.jsx";
+import {AdminNav} from "./pages/Admin/AdminNav.jsx";
 
 const App = () => (
 
@@ -71,6 +73,12 @@ const App = () => (
                     <LoginPage/>
                 </main>
             } />
+
+            <Route path={'admin'} element={
+                <main>
+                    <AdminDashboard />
+                </main>
+            }/>
         </Routes>
     </UserContextProvider>
 

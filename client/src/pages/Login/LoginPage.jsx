@@ -26,6 +26,10 @@ export function LoginPage() {
     }
 
 
+    if(red && email == 'ushanwk22@gmail.com'){
+        return <Navigate to={'/admin'} />
+    }
+
     if(red){
         return <Navigate to={'/'} />
     }
