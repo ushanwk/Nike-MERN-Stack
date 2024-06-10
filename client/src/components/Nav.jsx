@@ -1,11 +1,12 @@
 import {headerLogo} from "../assets/images/index.js";
 import {navLinks} from '../constants/index.js'
 import {arrowRight, hamburger} from "../assets/icons/index.js";
-import {ShopItems} from "../pages/Item/ShopItems.jsx";
 import {Link} from "react-router-dom";
 import Button from "./Button.jsx";
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../UserContext.jsx";
+import Profile from '../assets/images/Profile.png'
+import logoutIcon from '../assets/images/logout.png'
 
 const Nav = () => {
 
@@ -59,8 +60,8 @@ const Nav = () => {
                     {
                         email && (
                             <div className='flex flex-wrap gap-4 justify-center'>
-                                <h1>{email}</h1>
-                                <a onClick={logout}>Logout</a>
+                                <img src={Profile} width={45} />
+                                <a className={"mt-2"} onClick={logout}><h1 className="font-montserrat leading-normal text-lg text-slate-gray cursor-pointer">Logout</h1></a>
                             </div>
                         )
 
