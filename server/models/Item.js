@@ -7,7 +7,8 @@ const ItemSchema = new Schema({
     model: String,
     price: Number,
     image: String,
-    quantity: Number
+    quantity: Number,
+    supplierId: String,
 })
 
 const ItemModel = model('Item', ItemSchema);

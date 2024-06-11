@@ -73,7 +73,7 @@ app.post('/item', uploadMiddleware.single('file'), async (req, res) => {
     const newPath = path+'.'+ext
     fs.renameSync(path, newPath);
 
-    const{modelId, model, unitPrice, quantity} = req.body;
+    const{modelId, model, unitPrice, quantity, supplierId} = req.body;
     const price = Number(unitPrice);
     const qty = Number(quantity);
 
@@ -82,10 +82,16 @@ app.post('/item', uploadMiddleware.single('file'), async (req, res) => {
         model,
         price: price,
         image: newPath,
-        quantity: qty
+        quantity: qty,
+        supplierId,
     })
 
     res.json(itemDoc);
+})
+
+app.get('/item', async(req, res) => {
+    const items = await Item.find();
+    res.json(items);
 })
 
 app.listen(4000)
