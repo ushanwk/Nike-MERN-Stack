@@ -21,7 +21,7 @@ export function AdminDashboard() {
     return (
         <section className="min-h-screen">
             <div className="flex h-screen">
-                <div className="w-24 bg-white flex-col">
+                <div className="w-24 bg-white flex-col shadow-2xl">
 
                     <div className="w-24 flex justify-center">
                         <a href="/" className='mt-12'>
@@ -67,7 +67,7 @@ export function AdminDashboard() {
                 </div>
 
 
-                <div className="flex-1 bg-coral-red bg-opacity-10 p-4">
+                <div className="flex-1 bg-gray-50">
 
                     <AdminNav/>
 

@@ -3,9 +3,15 @@ const cors = require('cors');
 const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
 const app = express();
+
 const User = require('./models/User');
+const Item = require('./models/Item');
+
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const multer = require('multer');
+const uploadMiddleware = multer({dest: 'uploads/'});
+const fs = require('fs')
 
 const salt = bcrypt.genSaltSync(10);
 const secret = 'gjnjonfonodfnndfokn';
@@ -58,6 +64,28 @@ app.get('/profile', (req, res) => {
 
 app.post('/logout', (req, res) => {
     res.cookie('token', '').json('ok');
+})
+
+app.post('/item', uploadMiddleware.single('file'), async (req, res) => {
+    const{originalname, path} = req.file;
+    const parts = originalname.split('.');
+    const ext = parts[parts.length-1];
+    const newPath = path+'.'+ext
+    fs.renameSync(path, newPath);
+
+    const{modelId, model, unitPrice, quantity} = req.body;
+    const price = Number(unitPrice);
+    const qty = Number(quantity);
+
+    itemDoc = await Item.create({
+        modelId,
+        model,
+        price: price,
+        image: newPath,
+        quantity: qty
+    })
+
+    res.json(itemDoc);
 })
 
 app.listen(4000)

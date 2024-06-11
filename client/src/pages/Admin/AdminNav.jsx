@@ -31,7 +31,7 @@ export function AdminNav() {
 
 
     return(
-        <header className="py-8 z-10 w-full">
+        <header className="py-8 z-10 w-full bg-white">
             <nav className="flex justify-between items-center max-container">
 
                 <h2 className="text-[40px] font-palanquin font-bold">Welcome <span
