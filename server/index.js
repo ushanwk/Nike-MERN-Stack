@@ -18,7 +18,8 @@ const secret = 'gjnjonfonodfnndfokn';
 
 app.use(cors({credentials: true, origin: 'http://localhost:5173'}));
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
+app.use('/uploads', express.static(__dirname+'/uploads'));
 
 mongoose.connect('mongodb+srv://ushanwk22:ushanwk22@cluster0.oktfk7y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
@@ -92,6 +93,11 @@ app.post('/item', uploadMiddleware.single('file'), async (req, res) => {
 app.get('/item', async(req, res) => {
     const items = await Item.find();
     res.json(items);
+})
+
+app.get('/customer', async(req, res) => {
+    const customers = await User.find();
+    res.json(customers);
 })
 
 app.listen(4000)
