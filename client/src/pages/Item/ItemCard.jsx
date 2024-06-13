@@ -1,6 +1,6 @@
 import {star} from "../../assets/icons/index.js";
 
-export function ItemCard({item}) {
+export function ItemCard({item, setCart, cart}) {
     return (
         <section className={'w-[350px] h-[480px] shadow-xl mt-5 rounded-[10px] p-2 border'}>
             <img src={'http://localhost:4000/' + item.image} className={'h-72 w-full rounded-[10px]'}/>
@@ -18,7 +18,19 @@ export function ItemCard({item}) {
 
             <h1 className={'mx-3 mt-3 font-bold text-2xl opacity-50'}>Rs.{item.price}/=</h1>
 
-            <button className={'mx-3 mt-5 p-1 bg-coral-red w-[305px] rounded-[5px] text-white'}>Add to Cart</button>
+            <button
+                onClick={() => {
+                    setCart(prevCart => {
+                        if (!Array.isArray(prevCart)) {
+                            return prevCart;
+                        }
+
+                        const updatedCart = [...prevCart, item];
+                        return updatedCart;
+                    });
+                }}
+                className={'mx-3 mt-5 p-1 bg-coral-red w-[305px] rounded-[5px] text-white'
+            }>Add to Cart</button>
 
         </section>
     )

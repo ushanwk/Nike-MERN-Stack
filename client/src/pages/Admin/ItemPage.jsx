@@ -194,10 +194,8 @@ export function ItemPage() {
 
 
                             <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
-                                <table
-                                    className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    <thead
-                                        className="text-xs text-gray-700 uppercase bg-coral-red dark:bg-gray-700 dark:text-gray-400">
+                                <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead className="text-xs text-gray-700 uppercase bg-coral-red dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-white">
                                             Model ID
@@ -216,34 +214,36 @@ export function ItemPage() {
                                         </th>
                                     </tr>
                                     </thead>
-
-                                    <tbody>
-                                    {
-                                        allItems.length > 0 && allItems.map((item,index) => (
-                                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <th scope="row"
-                                                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    {allItems[index].modelId}
-                                                </th>
-                                                <td className="px-6 py-4">
-                                                    {allItems[index].model}
-                                                </td>
-                                                <td className="px-6 py-4">
-                                                    {allItems[index].supplierId}
-                                                </td>
-                                                <td className="px-6 py-4">
-                                                    {allItems[index].quantity}
-                                                </td>
-                                                <td className="px-6 py-4">
-                                                    Rs. {allItems[index].price}
-                                                </td>
-                                            </tr>
-                                        ))
-                                    }
-                                    </tbody>
-
                                 </table>
+                                <div className="overflow-y-auto max-h-64"> {/* Adjust 20rem as needed */}
+                                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        <tbody>
+                                        {
+                                            allItems.length > 0 && allItems.map((item, index) => (
+                                                <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                    <th scope="row" className="px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {item.modelId}
+                                                    </th>
+                                                    <td className="py-3">
+                                                        {item.model}
+                                                    </td>
+                                                    <td className="px-6 py-3">
+                                                        {item.supplierId}
+                                                    </td>
+                                                    <td className="px-6 py-3">
+                                                        {item.quantity}
+                                                    </td>
+                                                    <td className="px-6 py-3">
+                                                        Rs. {item.price}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
+
 
 
                         </section>

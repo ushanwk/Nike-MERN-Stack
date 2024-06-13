@@ -24,7 +24,7 @@ export function AdminDashboard() {
                 <div className="w-24 bg-white flex-col shadow-2xl">
 
                     <div className="w-24 flex justify-center">
-                        <a href="/" className='mt-12'>
+                        <a className='mt-12'>
                             <img
                                 src={nikeLogo}
                                 alt="Logo"

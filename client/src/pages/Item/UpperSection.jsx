@@ -1,7 +1,9 @@
 import {ItemCard} from "./ItemCard.jsx";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+import {Cart, headerLogo, Menu} from "../../assets/images/index.js";
 
-export const UpperSection = () => {
+export const UpperSection = ({cartItems, setCartItems}) => {
 
     const[allItems, setAllItems] = useState([]);
 
@@ -31,11 +33,12 @@ export const UpperSection = () => {
             </div>
 
 
-            <section className={'mt-8 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-14 mx-20'}>
+            <section
+                className={'mt-8 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-14 mx-20'}>
 
                 {
-                    allItems.length > 0 && allItems.map((item) => (
-                        <ItemCard item={item} />
+                    allItems.length > 0 && allItems.map((item, index) => (
+                        <ItemCard item={item} index={index} cart={cartItems} setCart={setCartItems}/>
                     ))}
 
             </section>

@@ -6,6 +6,7 @@ const app = express();
 
 const User = require('./models/User');
 const Item = require('./models/Item');
+const Supplier = require('./models/Supplier');
 
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
@@ -78,7 +79,7 @@ app.post('/item', uploadMiddleware.single('file'), async (req, res) => {
     const price = Number(unitPrice);
     const qty = Number(quantity);
 
-    itemDoc = await Item.create({
+    const itemDoc = await Item.create({
         modelId,
         model,
         price: price,
@@ -98,6 +99,27 @@ app.get('/item', async(req, res) => {
 app.get('/customer', async(req, res) => {
     const customers = await User.find();
     res.json(customers);
+})
+
+app.post('/supplier', async (req, res) => {
+    const {supId, supName, supAdd, supTel} = req.body;
+
+    const telephone = Number(supTel);
+
+    const supDoc = await Supplier.create({
+        supId: supId,
+        supName: supName,
+        supAddress: supAdd,
+        supTelephone: telephone
+    });
+
+    res.json(supDoc);
+
+});
+
+app.get('/supplier', async (req, res) => {
+    const suppliers = await Supplier.find();
+    res.json(suppliers);
 })
 
 app.listen(4000)
